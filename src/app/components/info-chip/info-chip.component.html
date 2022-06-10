@@ -1,0 +1,7 @@
+<div class="chip-container" #chip>
+  <div class="text">Simple chip text #{{index}}</div>
+  <div class="chip-content">
+    <app-button class="button" [ngClass]="{'small': index === 3}"></app-button>
+    <mat-icon class="icon" (click)="chip.remove()">close</mat-icon>
+  </div>
+</div>

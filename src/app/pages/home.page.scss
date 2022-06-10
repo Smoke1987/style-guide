@@ -1,0 +1,36 @@
+:host {
+  .main-content {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    // Назначено в style.scss
+    padding: var(--content-padding);
+
+    // Назначено в style.scss, переназначено в app.component.ts
+    background-color: var(--main-bg);
+
+    // Компонент с классом .chip-2 будет иметь margin в 10px и высоту кнопки 35px
+    .chip-2 {
+      --margin: 10px;
+      --button-height: 35px;
+    }
+
+    // Все компоненты странице app-home (кроме переопределённых :host-context(.some-another-context) в info-chip.scss)
+    app-info-chip {
+      --margin: 16px;
+      --border-color: blue;
+      // Более правильное и логичное использование для окрашивания цвета иконки только внутри чипа (не внутри кнопки)
+      // --icon-color: red;
+    }
+  }
+
+}
+// Данный селектор окрасит все иконки внутри всех элементов в красный цвет (что неочевидно)
+// тогда как .button-wrapper в button.component.ts говорит, что цвет всей кнопки (для текста и для иконки) var(--color)
+::ng-deep app-info-chip .icon {
+  color: red;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+}

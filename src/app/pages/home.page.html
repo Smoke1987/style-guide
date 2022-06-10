@@ -1,0 +1,11 @@
+<div class="main-content">
+  <app-info-chip *ngFor="let _index of [1,2,3,4,5]" [index]="_index" class="chip-{{_index}}"></app-info-chip>
+
+  <div class="some-another-context">
+    <app-info-chip [index]="6" class="chip-6"></app-info-chip>
+
+    <div class="and-child-again">
+      <app-info-chip [index]="6" class="chip-6"></app-info-chip>
+    </div>
+  </div>
+</div>

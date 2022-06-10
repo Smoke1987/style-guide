@@ -1,0 +1,50 @@
+// Здесь мы можем описать кастомные переменные, которые будут управлять компонентом
+:host {
+  --button-margin-r: 10px;
+  --button-padding: 12px;
+  --button-height: 46px;
+  --padding: 20px;
+  --border-color: black;
+
+  display: inline-flex;
+  padding: var(--padding);
+  margin: var(--margin); // значения по-умолчанию нет, поэтому будет 0
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+
+  .chip-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .text {
+      margin-bottom: 20px;
+    }
+
+    .chip-content {
+      display: inline-flex;
+      align-items: center;
+      .button {
+        margin-right: var(--button-margin-r);
+      }
+      .icon {
+        // Более правильное и логичное использование для окрашивания цвета иконки только внутри чипа (не внутри кнопки)
+        // color: var(--icon-color);
+      }
+    }
+  }
+}
+// У компонента с классом .chip-1
+:host(.chip-1) {
+  // Для компонента кнопки свои цвета
+  app-button {
+    --color: green;
+    --font-color: unset;
+  }
+}
+// Компонент, который будет находиться внутри контекста .some-another-context (или ещё глубже по DOM-дереву)
+// будет с таким бордером
+:host-context(.some-another-context) {
+  border: 2px solid red;
+}

@@ -1,8 +1,6 @@
 # style-guide
 Angular style guide
 
-My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
-
 Здесь постараюсь вкратце поделиться наработками использования кастомных переменных при вёрстке компонентов.
 
 #### Для инфы
@@ -17,7 +15,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 гибкость настройки своего внешнего вида, а именно: длинна, высота, радиус скругления углов.
 В одном месте приложения кнопка должна быть высотой `40px`, в другом - `56px`.
 
-[app/components/button/button.component.scss](https://github.com/Smoke1987/style-guide/blob/5b91477cc3f63649971744dde7922fdfcfb1c5b4/src/app/components/button/button.component.scss#L1-L8)
+[app/components/button/button.component.scss](https://github.com/Smoke1987/style-guide/blob/856726b20426d5df16043593dd0a41706fa81feb/src/app/components/button/button.component.scss#L1-L8)
 ```scss
 :host {
     --font-size: 14px;
@@ -41,7 +39,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 Дальше, в любом месте, где нам нужно изменить высоту кнопки, мы можем (и **_Best Practices_**
 призывает нас) не используя `::ng-deep` регулировать высоту так:
 
-[app/components/info-chip/info-chip.component.scss](https://github.com/Smoke1987/style-guide/blob/5b91477cc3f63649971744dde7922fdfcfb1c5b4/src/app/components/info-chip/info-chip.component.scss#L28-L29)
+[app/components/info-chip/info-chip.component.scss](https://github.com/Smoke1987/style-guide/blob/856726b20426d5df16043593dd0a41706fa81feb/src/app/components/info-chip/info-chip.component.scss#L28-L29)
 
 ```scss
     app-button {
@@ -58,7 +56,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 Самый большой минус (или плюс) данного псевдо-класса: он применяет стиль ко всем вложенным элементам
 (в том числе и инкапсулированным вьюшкам, а также компонентам с DOM-shadow).
 
-[app/pages/home.page.scss](https://github.com/Smoke1987/style-guide/blob/5b91477cc3f63649971744dde7922fdfcfb1c5b4/src/app/pages/home.page.scss#L29-L36)
+[app/pages/home.page.scss](https://github.com/Smoke1987/style-guide/blob/856726b20426d5df16043593dd0a41706fa81feb/src/app/pages/home.page.scss#L29-L36)
 
 ```scss
 // Данный селектор окрасит все иконки (.icon) внутри всех элементов внутри app-info-chip в красный цвет (что неочевидно)
@@ -83,12 +81,12 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 
 `:host(<selector>)` - применяется к текущемму компоненту с конкретным селектором.
 
-[app/components/info-chip/info-chip.component.html](https://github.com/Smoke1987/style-guide/blob/5b91477cc3f63649971744dde7922fdfcfb1c5b4/src/app/components/info-chip/info-chip.component.html#L4)
+[app/components/info-chip/info-chip.component.html](https://github.com/Smoke1987/style-guide/blob/856726b20426d5df16043593dd0a41706fa81feb/src/app/components/info-chip/info-chip.component.html#L4)
 ```angular2html
 <app-button class="button" [ngClass]="{'small': index === 3}"></app-button>
 ```
 
-[app/components/button/button.component.scss](https://github.com/Smoke1987/style-guide/blob/5b91477cc3f63649971744dde7922fdfcfb1c5b4/src/app/components/button/button.component.scss#L36-L40)
+[app/components/button/button.component.scss](https://github.com/Smoke1987/style-guide/blob/856726b20426d5df16043593dd0a41706fa81feb/src/app/components/button/button.component.scss#L36-L40)
 ```scss
 :host(.small) {
     --icon-size: 16px;
@@ -101,7 +99,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 `:host-context(<selector>)` - применяется к текущему компоненту в том случае,
 если компонент имеет родителя с выбранным селектором (хост внутри контекста <selector>)
 
-[app/components/info-chip/info-chip.component.scss](https://github.com/Smoke1987/style-guide/blob/5b91477cc3f63649971744dde7922fdfcfb1c5b4/src/app/components/info-chip/info-chip.component.scss#L47-L51)
+[app/components/info-chip/info-chip.component.scss](https://github.com/Smoke1987/style-guide/blob/856726b20426d5df16043593dd0a41706fa81feb/src/app/components/info-chip/info-chip.component.scss#L47-L51)
 ```scss
 // Компонент, который будет находиться внутри контекста .some-another-context (или ещё глубже по DOM-дереву)
 // будет с таким бордером

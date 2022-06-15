@@ -6,6 +6,9 @@
 
   .button-wrapper {
     height: var(--height);
+    // Здесь мы можем не думать о параметре, тк он быдет высчитываться автоматом при смене отступов и высоты кнопки
+    line-height: calc(var(--height) - var(--button-padding) * 2);
+
     // Значение берётся из ближайшего родителя (info-chip)
     padding: var(--button-padding);
 
@@ -14,7 +17,7 @@
     background-color: var(--background, grey);
     display: flex;
     align-items: center;
-    // Переменная не назначена, по-умолчанию chrome даст чёрный
+    // Данный цвет иконки будет переназначен селектором псевдокласса ::ng-deep
     color: var(--color);
 
     .label {

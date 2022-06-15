@@ -25,7 +25,8 @@
     .chip-content {
       display: inline-flex;
       align-items: center;
-      .button {
+      app-button {
+        --height: 48px;
         margin-right: var(--button-margin-r);
       }
       .icon {
